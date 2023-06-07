@@ -51,7 +51,7 @@ def _get_dbt_core_version():
 
 
 package_name = "dbt-snowflake"
-package_version = "1.7.0"
+package_version = "1.7.2"
 dbt_core_version = _get_dbt_core_version()
 description = """The Snowflake adapter plugin for dbt"""
 
@@ -67,7 +67,7 @@ setup(
     packages=find_namespace_packages(include=["dbt", "dbt.*"]),
     include_package_data=True,
     install_requires=[
-        "dbt-core~={}".format(dbt_core_version),
+        f"dbt-core @ git+https://github.com/maxa-ai/dbt-core.git@v{package_version}-maxa#egg=dbt-core&subdirectory=core",
         "snowflake-connector-python[secure-local-storage]~=3.0",
         # installed via dbt-core but referenced directly; don't pin to avoid version conflicts with dbt-core
         "agate",
