@@ -67,7 +67,7 @@ setup(
     packages=find_namespace_packages(include=["dbt", "dbt.*"]),
     include_package_data=True,
     install_requires=[
-        "dbt-core~={}".format(dbt_core_version),
+        f"dbt-core @ git+https://github.com/maxa-ai/dbt-core.git@v1.5.9-maxa#egg=dbt-core&subdirectory=core",
         "snowflake-connector-python[secure-local-storage]~=3.0",
     ],
     zip_safe=False,
